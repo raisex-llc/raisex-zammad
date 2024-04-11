@@ -324,7 +324,7 @@ function detect_local_gemfiles () {
 }
 
 function detect_zammad_packages () {
-  if [ "$(zammad run rails r 'puts Package.count.positive?')" == "true" ] && [ -n "$(which yarn 2> /dev/null)" ] ; then
+  if [ "$(zammad run rails r 'puts Package.count.positive?')" == "true" ] && [ -n "$(which pnpm 2> /dev/null)" ] ; then
     echo "# Detected custom packages..."
     ZAMMAD_PACKAGES="yes"
   else

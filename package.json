@@ -1,25 +1,25 @@
 {
   "private": true,
   "scripts": {
-    "generate-graphql-api": "RAILS_ENV=development bundle exec rails generate zammad:graphql_introspection > app/graphql/graphql_introspection.json && npx graphql-codegen -c .graphql_code_generator.js",
+    "generate-graphql-api": "RAILS_ENV=development bundle exec rails generate zammad:graphql_introspection > app/graphql/graphql_introspection.json && pnpm exec graphql-codegen -c .graphql_code_generator.js",
     "generate-setting-types": "RAILS_ENV=development bundle exec rails generate zammad:setting_types",
     "dev": "RAILS_ENV=development forego start -f Procfile.dev",
     "dev:https": "VITE_RUBY_HOST=0.0.0.0 VITE_RUBY_HTTPS=true RAILS_ENV=development forego start -f Procfile.dev-https",
     "i18n": "rails generate zammad:translation_catalog",
     "lint": "vue-tsc --noEmit && eslint --cache --cache-location ./tmp/eslintcache.js  --cache-strategy content -c .eslintrc.js --ext .js,.ts,.vue app/frontend/ .eslint-plugin-zammad/",
-    "lint:fix": "yarn lint -- --fix",
+    "lint:fix": "pnpm lint -- --fix",
     "lint:css": "stylelint **/*.{css,vue,scss}",
     "lint:css:fix": "stylelint **/*.{css,vue,scss} --fix",
     "test": "VTL_SKIP_AUTO_CLEANUP=true TZ=utc vitest",
-    "test:ct": "CY_OPEN=true yarn --cwd ./.cypress cypress open --component --project ../ --config-file .cypress/cypress.config.mjs",
-    "test:ci:ct": "CI=true yarn --cwd ./.cypress cypress run --component --project ../ --config-file .cypress/cypress.config.mjs --browser electron",
+    "test:ct": "cd cypress; CY_OPEN=true pnpm cypress open --component --project ../ --config-file .cypress/cypress.config.mjs",
+    "test:ci:ct": "cd .cypress; CI=true pnpm cypress run --component --project ../ --config-file .cypress/cypress.config.mjs --browser electron",
     "cypress:snapshots": "sh .cypress/visual-regression/snapshots.sh",
-    "cypress:install": "yarn --cwd ./.cypress install"
+    "cypress:install": "pnpm --dir ./.cypress install"
   },
   "engines": {
     "node": ">=18.12.0"
   },
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "pnpm@8.15.2",
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
     "@graphql-codegen/cli": "^5.0.2",
@@ -118,6 +118,7 @@
     "@tiptap/suggestion": "^2.2.6",
     "@tiptap/vue-3": "^2.2.6",
     "@vue/apollo-composable": "^4.0.2",
+    "@vue/runtime-core": "^3.4.21",
     "@vuepic/vue-datepicker": "^8.4.0",
     "@vueuse/core": "^10.9.0",
     "@vueuse/router": "^10.9.0",
@@ -135,6 +136,8 @@
     "pinia": "^2.1.7",
     "tippy.js": "^6.3.7",
     "tiptap-text-direction": "^0.3.1",
+    "ts-essentials": "^9.4.2",
+    "tslib": "^2.6.2",
     "ua-parser-js": "^1.0.37",
     "uuid": "^9.0.1",
     "vue": "^3.4.21",

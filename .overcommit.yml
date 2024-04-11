@@ -34,12 +34,12 @@ PreCommit:
     flags: ['.overcommit.sh']
   Stylelint:
     enabled: true
-    required_executable: 'yarn'
-    command: ['yarn', '--silent', 'lint:css']
+    required_executable: 'pnpm'
+    command: ['pnpm', '--silent', 'lint:css']
   EsLint:
-    required_executable: 'yarn'
+    required_executable: 'pnpm'
     enabled: true
-    command: ['yarn', 'lint']
+    command: ['pnpm', 'lint']
     exclude:
       - 'app/assets/**/*'
       - 'public/assets/chat/**/*'

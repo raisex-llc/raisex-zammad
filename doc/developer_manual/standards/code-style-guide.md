@@ -21,10 +21,10 @@ Linters can also be ran manually:
 $ bundle exec rubocop --parallel
 
 # ESLint
-$ yarn lint
+$ pnpm lint
 
 # Stylelint
-$ yarn lint:css
+$ pnpm lint:css
 
 # Coffeelint
 $ coffeelint --rules ./.coffeelint/rules/* app/

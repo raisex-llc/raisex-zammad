@@ -15,7 +15,7 @@ There are two colors that act as variables so that they can get replaced via CSS
 See [`public/assets/images/README.md`](/public/assets/images/README.md):
 
 ```
-$ yarn install
+$ pnpm install
 $ npx gulp build
 [14:08:17] Using gulpfile zammad/public/assets/images/gulpfile.js
 [14:08:17] Starting 'build'...
